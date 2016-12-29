@@ -1,8 +1,13 @@
 import Money from './Money';
 
-interface IRentalPrice {
-    basePrice: Money;
-    pricePerExtraDay: Money;
+class RentalPrice {
+    public basePrice: Money;
+    public pricePerExtraDay: Money;
+
+    constructor(basePrice: Money, pricePerExtraDay: Money) {
+        this.basePrice = basePrice;
+        this.pricePerExtraDay = pricePerExtraDay;
+    }
 }
 
-export default IRentalPrice;
+export default RentalPrice;

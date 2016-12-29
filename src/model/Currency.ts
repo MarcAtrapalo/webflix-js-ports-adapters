@@ -1,6 +1,10 @@
 class Currency {
     private _isoCode: string;
 
+    constructor(isoCode: string) {
+        this.isoCode = isoCode;
+    }
+
     get isoCode(): string {
         return this._isoCode;
     }
