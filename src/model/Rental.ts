@@ -23,7 +23,11 @@ class Rental {
                               pricePerExtraDay: Money,
                               minimumRentalDays: number,
                               daysRented: number): Money {
+        if (daysRented <= 0) throw new Error('daysRented must be higher than zero');
+
         let price = basePrice;
+
+        daysRented = Math.ceil(daysRented);
 
         if (daysRented > minimumRentalDays) {
             price = price.add(pricePerExtraDay.times(daysRented - minimumRentalDays));
