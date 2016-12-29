@@ -57,6 +57,8 @@ describe('Rental', () => {
             spy.should.have.been.called;
         });
 
+        it('should call computeRentalPrice with the correct params');
+
     });
 
 });

@@ -1,4 +1,4 @@
-import Movie from '../../src/model/Movie';
+import Movie from '../../src/model/movie/Movie';
 import RentalPrice from '../../src/model/RentalPrice';
 import RentalPriceBuilder from './RentalPriceBuilder';
 
