@@ -6,7 +6,7 @@ import Money from '../Money';
 export const NEW_RELEASE_MOVIE_RENTAL_DAYS = 0;
 export const NEW_RELEASE_MOVIE_RENTAL_PRICE = new RentalPrice(
     new Money(0, new Currency('EUR')),
-    new Money(3, new Currency('EUR'))
+    new Money(3, new Currency('EUR')),
 );
 
 class NewReleaseMovie extends Movie {

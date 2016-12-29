@@ -23,7 +23,9 @@ class Rental {
                               pricePerExtraDay: Money,
                               minimumRentalDays: number,
                               daysRented: number): Money {
-        if (daysRented <= 0) throw new Error('daysRented must be higher than zero');
+        if (daysRented <= 0) {
+            throw new Error('daysRented must be higher than zero');
+        }
 
         let price = basePrice;
 

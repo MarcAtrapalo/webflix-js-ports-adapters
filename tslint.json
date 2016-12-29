@@ -2,6 +2,7 @@
   "extends": "tslint:latest",
   "rules": {
     "quotemark": [true, "single"],
-    "variable-name": [true, "check-format", "allow-leading-underscore"]
+    "variable-name": [true, "check-format", "allow-leading-underscore"],
+    "ordered-imports": false
   }
 }
