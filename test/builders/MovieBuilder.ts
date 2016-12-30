@@ -17,14 +17,17 @@ class MovieBuilder {
 
     public withTitle(title: string) {
         this.title = title;
+        return this;
     }
 
     public withPrice(price: RentalPrice) {
         this.price = price;
+        return this;
     }
 
     public withRentalDays(rentalDays: number) {
         this.rentalDays = rentalDays;
+        return this;
     }
 
     build(): Movie {

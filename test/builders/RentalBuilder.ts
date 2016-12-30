@@ -15,10 +15,12 @@ class RentalBuilder {
 
     public withMovie(movie: Movie) {
         this.movie = movie;
+        return this;
     }
 
     public withDays(days: number) {
         this.days = days;
+        return this;
     }
 
     build(): Rental {

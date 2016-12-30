@@ -6,7 +6,7 @@ import RentalPrice from '../model/RentalPrice';
 export enum IMovieType {
     NEW_RELEASE,
     REGULAR,
-    CHILDRENS
+    CHILDRENS,
 }
 
 /** Concrete movie types values */
@@ -28,7 +28,7 @@ export const CHILDRENS_MOVIE_RENTAL_PRICE = new RentalPrice(
     new Money(1.5, new Currency('EUR')),
 );
 
-class MovieFactory {
+export class MovieFactory {
 
     public createMovie(title: string, type: IMovieType) {
         switch (type) {
@@ -38,6 +38,8 @@ class MovieFactory {
                 return new Movie(title, REGULAR_MOVIE_RENTAL_PRICE, REGULAR_MOVIE_RENTAL_DAYS);
             case IMovieType.CHILDRENS:
                 return new Movie(title, CHILDRENS_MOVIE_RENTAL_PRICE, CHILDRENS_MOVIE_RENTAL_DAYS);
+            default:
+                throw new Error('Unexpected Movie Type');
         }
     }
 

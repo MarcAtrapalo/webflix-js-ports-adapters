@@ -2,6 +2,8 @@ import Rental from '../src/domain/model/Rental';
 import RentalBuilder from './builders/RentalBuilder';
 import Money from '../src/domain/model/Money';
 import Currency from "../src/domain/model/Currency";
+import MovieBuilder from "./builders/MovieBuilder";
+import RentalPriceBuilder from "./builders/RentalPriceBuilder";
 const sinon = require('sinon');
 
 describe('Rental', () => {
@@ -57,7 +59,15 @@ describe('Rental', () => {
             spy.should.have.been.called;
         });
 
-        it('should call computeRentalPrice with the correct params');
+        it('should call computeRentalPrice with the correct params', () => {
+            const rentalPrice = (new RentalPriceBuilder().withBasePrice(fiveEuros).withPricePerExtraDay(tenEuros)).build();
+            const movie = (new MovieBuilder().withPrice(rentalPrice).withRentalDays(4)).build();
+            const rental = (new RentalBuilder().withDays(1).withMovie(movie)).build();
+
+            const spy = sinon.spy(rental, 'computeRentalPrice');
+            rental.getRentalPrice();
+            spy.should.have.been.calledWithExactly(fiveEuros, tenEuros, 4, 1);
+        });
 
     });
 

@@ -14,10 +14,12 @@ class RentalPriceBuilder {
 
     public withBasePrice(basePrice: Money) {
         this.basePrice = basePrice;
+        return this;
     }
 
     public withPricePerExtraDay(pricePerExtraDay: Money) {
         this.pricePerExtraDay = pricePerExtraDay;
+        return this;
     }
 
     public build(): RentalPrice {
