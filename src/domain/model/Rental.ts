@@ -10,13 +10,17 @@ class Rental {
         this.days = days;
     }
 
-    public getRentalPrice() {
+    public getRentalPrice(): Money {
         const moviePrice = this.movie.price;
         return this.computeRentalPrice(
             moviePrice.basePrice,
             moviePrice.pricePerExtraDay,
             this.movie.rentalDays,
             this.days);
+    }
+
+    public getFrequentRenterPoints(): number {
+        throw new Error('please implement');
     }
 
     public computeRentalPrice(basePrice: Money,
