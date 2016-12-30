@@ -1,7 +1,7 @@
-import Rental from '../src/model/Rental';
+import Rental from '../src/domain/model/Rental';
 import RentalBuilder from './builders/RentalBuilder';
-import Money from '../src/model/Money';
-import Currency from "../src/model/Currency";
+import Money from '../src/domain/model/Money';
+import Currency from "../src/domain/model/Currency";
 const sinon = require('sinon');
 
 describe('Rental', () => {

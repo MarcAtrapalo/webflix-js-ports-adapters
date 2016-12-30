@@ -1,6 +1,6 @@
-import RentalPrice from '../../src/model/RentalPrice';
-import Money from '../../src/model/Money';
-import Currency from '../../src/model/Currency';
+import RentalPrice from '../../src/domain/model/RentalPrice';
+import Money from '../../src/domain/model/Money';
+import Currency from '../../src/domain/model/Currency';
 
 class RentalPriceBuilder {
 

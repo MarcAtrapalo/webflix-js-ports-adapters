@@ -1,5 +1,5 @@
-import Movie from '../../src/model/movie/Movie';
-import RentalPrice from '../../src/model/RentalPrice';
+import Movie from '../../src/domain/model/Movie';
+import RentalPrice from '../../src/domain/model/RentalPrice';
 import RentalPriceBuilder from './RentalPriceBuilder';
 
 class MovieBuilder {

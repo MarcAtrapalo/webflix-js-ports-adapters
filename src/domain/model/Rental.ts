@@ -1,5 +1,5 @@
 import Money from './Money';
-import Movie from './movie/Movie';
+import Movie from './Movie';
 
 class Rental {
     public movie: Movie;
