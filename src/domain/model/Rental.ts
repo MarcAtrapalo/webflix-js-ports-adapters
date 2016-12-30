@@ -20,7 +20,11 @@ class Rental {
     }
 
     public getFrequentRenterPoints(): number {
-        throw new Error('please implement');
+        if (this.days < this.movie.frequentRenterMinimumDays) {
+            return this.movie.frequentRenterBasePoints;
+        } else {
+            return this.movie.frequentRenterPointsForExtraDays;
+        }
     }
 
     public computeRentalPrice(basePrice: Money,

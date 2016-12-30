@@ -50,6 +50,26 @@ describe('Rental', () => {
         cost.amount.should.equal(fiveEuros.amount + tenEuros.amount);
     });
 
+    it('should give movie base points if minimumDays are not exceeded', () => {
+        const movie = (new MovieBuilder()
+            .withFrequentRenterMinimumDays(6)
+            .withFrequentRenterBasePoints(1)
+            .withFrequentRenterPointsForExtraDays(2)
+        ).build();
+        const sut = (new RentalBuilder().withDays(5).withMovie(movie)).build();
+        sut.getFrequentRenterPoints().should.equal(1);
+    });
+
+    it('should give movie extra points if minimumDays are exceeded', () => {
+        const movie = (new MovieBuilder()
+                .withFrequentRenterMinimumDays(6)
+                .withFrequentRenterBasePoints(1)
+                .withFrequentRenterPointsForExtraDays(2)
+        ).build();
+        const sut = (new RentalBuilder().withDays(6).withMovie(movie)).build();
+        sut.getFrequentRenterPoints().should.equal(2);
+    });
+
     describe('when calling getRentalPrice', () => {
 
         it('should call computeRentalPrice', () => {

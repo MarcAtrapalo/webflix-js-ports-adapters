@@ -18,6 +18,7 @@ class MovieBuilder {
         this.rentalDays = 1;
         this.frequentRenterMinimumDays = 0;
         this.frequentRenterBasePoints = 1;
+        this.frequentRenterPointsForExtraDays = 1;
     }
 
     public withTitle(title: string) {
@@ -52,7 +53,7 @@ class MovieBuilder {
 
     build(): Movie {
         return new Movie(this.title, this.price, this.rentalDays,
-            this.frequentRenterMinimumDays, this.frequentRenterBasePoints);
+            this.frequentRenterMinimumDays, this.frequentRenterBasePoints, this.frequentRenterPointsForExtraDays);
     }
 
 }
