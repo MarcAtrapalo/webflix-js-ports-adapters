@@ -3,6 +3,8 @@
   "rules": {
     "quotemark": [true, "single"],
     "variable-name": [true, "check-format", "allow-leading-underscore"],
-    "ordered-imports": false
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false
   }
 }

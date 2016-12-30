@@ -1,7 +1,4 @@
-import MovieFactory, {
-    IMovieType, CHILDRENS_MOVIE_RENTAL_PRICE,
-    CHILDRENS_MOVIE_RENTAL_DAYS
-} from '../src/domain/services/MovieFactory';
+import MovieFactory, {IMovieType, MOVIE_TYPES_PARAMS} from '../src/domain/services/MovieFactory';
 import Movie from '../src/domain/model/Movie';
 
 describe('MovieFactory', () => {
@@ -15,11 +12,11 @@ describe('MovieFactory', () => {
     });
 
     it('should create a movie with the price of its type', () => {
-        MovieFactory.createMovie('Test', IMovieType.CHILDRENS).price.should.deep.equal(CHILDRENS_MOVIE_RENTAL_PRICE);
+        MovieFactory.createMovie('Test', IMovieType.CHILDRENS).price.should.deep.equal(MOVIE_TYPES_PARAMS[IMovieType.CHILDRENS].rentalPrice);
     });
 
     it('should create a Movie with the days of its type', () => {
-        MovieFactory.createMovie('Test', IMovieType.CHILDRENS).rentalDays.should.equal(CHILDRENS_MOVIE_RENTAL_DAYS);
+        MovieFactory.createMovie('Test', IMovieType.CHILDRENS).rentalDays.should.equal(MOVIE_TYPES_PARAMS[IMovieType.CHILDRENS].rentalDays);
     });
 
     it('should throw for unexisting type', () => {

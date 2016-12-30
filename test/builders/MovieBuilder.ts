@@ -7,12 +7,17 @@ class MovieBuilder {
     private title: string;
     private price: RentalPrice;
     private rentalDays: number;
+    public frequentRenterMinimumDays: number;
+    public frequentRenterBasePoints: number;
+    public frequentRenterPointsForExtraDays: number;
 
     constructor() {
         this.title = 'Test Movie';
         const rentalPriceBuilder = new RentalPriceBuilder();
         this.price = rentalPriceBuilder.build();
         this.rentalDays = 1;
+        this.frequentRenterMinimumDays = 0;
+        this.frequentRenterBasePoints = 1;
     }
 
     public withTitle(title: string) {
@@ -30,8 +35,24 @@ class MovieBuilder {
         return this;
     }
 
+    public withFrequentRenterMinimumDays(minimumDays: number) {
+        this.frequentRenterMinimumDays = minimumDays;
+        return this;
+    }
+
+    public withFrequentRenterBasePoints(basePoints: number) {
+        this.frequentRenterBasePoints = basePoints;
+        return this;
+    }
+
+    public withFrequentRenterPointsForExtraDays(points: number) {
+        this.frequentRenterPointsForExtraDays = points;
+        return this;
+    }
+
     build(): Movie {
-        return new Movie(this.title, this.price, this.rentalDays)
+        return new Movie(this.title, this.price, this.rentalDays,
+            this.frequentRenterMinimumDays, this.frequentRenterBasePoints);
     }
 
 }
