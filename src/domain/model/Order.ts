@@ -17,13 +17,13 @@ class Order {
     }
 
     public getTotalPrice(): Money {
-        return this.rentalList.reduce((accumulatedMoney: Money, rental) => {
+        return this.rentalList.reduce((accumulatedMoney: Money, rental: Rental): Money => {
             return accumulatedMoney.add(rental.getRentalPrice());
         }, new Money(0, new Currency('EUR')));
     }
 
     public getTotalFrequentRenterPoints(): number {
-        return this.rentalList.reduce((accumulatedPoints: number, rental) => {
+        return this.rentalList.reduce((accumulatedPoints: number, rental: Rental): number => {
             return accumulatedPoints + rental.getFrequentRenterPoints();
         }, 0);
     }
