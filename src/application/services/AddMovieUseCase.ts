@@ -1,14 +1,13 @@
-import MovieRepository from '../../infrastructure/repositories/MovieRepository';
+import IMovieRepository from '../../infrastructure/repositories/IMovieRepository';
 import Movie from '../../domain/model/Movie';
-import MovieFactory from '../../domain/services/MovieFactory';
-import {IMovieType} from "../../domain/services/MovieFactory";
+import MovieFactory, {IMovieType} from '../../domain/services/MovieFactory';
 
 
 class AddMovieUseCase {
 
-    private movieRepository: MovieRepository;
+    private movieRepository: IMovieRepository;
 
-    constructor(movieRepository: MovieRepository) {
+    constructor(movieRepository: IMovieRepository) {
         this.movieRepository = movieRepository;
     }
 
@@ -28,7 +27,7 @@ class AddMovieUseCase {
     public execute(title: string, type: string) {
         let movieType = this.getMovieType(type);
         let movie = MovieFactory.createMovie(title, movieType);
-        MovieRepository.add(movie);
+        this.movieRepository.add(movie);
     }
 
 }

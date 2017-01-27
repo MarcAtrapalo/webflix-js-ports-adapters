@@ -1,4 +1,4 @@
-import MovieRepository from '../../infrastructure/repositories/MovieRepository';
+import InMemoryMovieRepository from '../../infrastructure/repositories/InMemoryMovieRepository';
 import AddMovieUseCase from './AddMovieUseCase';
 
 export interface IAddMovieRequest {
@@ -9,7 +9,7 @@ export interface IAddMovieRequest {
 class MovieController {
 
     addMovie(request: IAddMovieRequest) {
-        let useCase = new AddMovieUseCase(MovieRepository);
+        let useCase = new AddMovieUseCase(InMemoryMovieRepository);
         useCase.execute(request.title, request.type);
     }
 

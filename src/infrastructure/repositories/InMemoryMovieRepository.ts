@@ -1,7 +1,8 @@
 import Movie from '../../domain/model/Movie';
+import IMovieRepository from './IMovieRepository';
 
 
-export class MovieRepository {
+export class InMemoryMovieRepository implements IMovieRepository {
     private movies: Movie[];
 
     constructor() {
@@ -33,6 +34,6 @@ export class MovieRepository {
 
 }
 
-const movieRepository = new MovieRepository();
+const movieRepository = new InMemoryMovieRepository();
 
 export default movieRepository;
