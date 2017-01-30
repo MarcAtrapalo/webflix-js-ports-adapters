@@ -1,15 +1,18 @@
 import Command from './Command';
-import * as commandHandlers from '../commands/';
-
-console.log(commandHandlers);
+import CommandHandler from './CommandHandler';
+import CommandHandlerLookupServiceInstance, {CommandHandlerLookupService} from './CommandHandlerLookupService';
 
 export class CommandBus {
 
-    public execute(command: Command): void {
+    constructor(private service: CommandHandlerLookupService) {}
 
+    public execute(command: Command): void {
+        const commandName = command.meta.commandType;
+        const commandHandler = <CommandHandler>this.service.lookupCommandHandler(commandName);
+        commandHandler.execute(command);
     }
 
 }
 
-const SingletonCommandBus = new CommandBus();
+const SingletonCommandBus = new CommandBus(CommandHandlerLookupServiceInstance);
 export default SingletonCommandBus;
