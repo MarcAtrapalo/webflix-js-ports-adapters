@@ -1,4 +1,4 @@
-import Currency from '../src/domain/model/Currency';
+import Currency from './Currency';
 
 describe('Currency', () => {
 

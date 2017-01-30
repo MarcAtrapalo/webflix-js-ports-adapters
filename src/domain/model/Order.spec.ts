@@ -1,10 +1,10 @@
-import Order from '../src/domain/model/Order';
-import Rental from '../src/domain/model/Rental';
-import Customer from '../src/domain/model/Customer';
-import RentalBuilder from './builders/RentalBuilder';
-import MovieBuilder from './builders/MovieBuilder';
-import Money from '../lib/domain/model/Money';
-import Currency from '../lib/domain/model/Currency';
+import Order from './Order';
+import Rental from './Rental';
+import Customer from './Customer';
+import RentalBuilder from './test-builders/RentalBuilder';
+import MovieBuilder from './test-builders/MovieBuilder';
+import Money from './Money';
+import Currency from './Currency';
 const sinon = require('sinon');
 
 describe('Order', () => {

@@ -1,8 +1,8 @@
-import Movie from '../../src/domain/model/Movie';
-import RentalPrice from '../../src/domain/model/RentalPrice';
+import Movie from '../Movie';
+import RentalPrice from '../RentalPrice';
 import RentalPriceBuilder from './RentalPriceBuilder';
 
-class yMovieBuilder {
+class MovieBuilder {
 
     private title: string;
     private price: RentalPrice;

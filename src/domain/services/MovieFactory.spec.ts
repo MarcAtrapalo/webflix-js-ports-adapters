@@ -1,5 +1,5 @@
-import MovieFactory, {IMovieType, MOVIE_TYPES_PARAMS} from '../src/domain/services/MovieFactory';
-import Movie from '../src/domain/model/Movie';
+import MovieFactory, {IMovieType, MOVIE_TYPES_PARAMS} from './MovieFactory';
+import Movie from '../model/Movie';
 
 describe('MovieFactory', () => {
 

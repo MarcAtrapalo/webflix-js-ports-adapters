@@ -17,7 +17,7 @@
     "clean": "rimraf lib",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "build": "npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
-    "test": "npm run build && mocha --require test/index.js --compilers ts:ts-node/register --recursive test/**/*.spec.ts",
+    "test": "npm run build && mocha --require src/pretest.js --compilers ts:ts-node/register --recursive src/**/*.spec.ts",
     "watch": "npm run build -- --watch",
     "test:watch": "npm run test -- --watch"
   },
