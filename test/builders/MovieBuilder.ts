@@ -2,7 +2,7 @@ import Movie from '../../src/domain/model/Movie';
 import RentalPrice from '../../src/domain/model/RentalPrice';
 import RentalPriceBuilder from './RentalPriceBuilder';
 
-class MovieBuilder {
+class yMovieBuilder {
 
     private title: string;
     private price: RentalPrice;

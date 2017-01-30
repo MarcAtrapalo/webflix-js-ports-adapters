@@ -1,15 +1,16 @@
 import IMovieRepository from '../../infrastructure/repositories/IMovieRepository';
 import Movie from '../../domain/model/Movie';
 import MovieFactory, {IMovieType} from '../../domain/services/MovieFactory';
+import Command from '../command-bus/Command';
+import CommandHandler from '../command-bus/CommandHandler';
 
+export interface AddMovieCommand extends Command {
+    title: string;
+    type: string;
+    movieRepository: IMovieRepository;
+}
 
-class AddMovieUseCase {
-
-    private movieRepository: IMovieRepository;
-
-    constructor(movieRepository: IMovieRepository) {
-        this.movieRepository = movieRepository;
-    }
+export default class AddMovieCommandHandler implements CommandHandler {
 
     private getMovieType(type: string): IMovieType {
         switch (type) {
@@ -24,12 +25,10 @@ class AddMovieUseCase {
         }
     }
 
-    public execute(title: string, type: string) {
-        let movieType = this.getMovieType(type);
-        let movie = MovieFactory.createMovie(title, movieType);
-        this.movieRepository.add(movie);
+    public execute(command: AddMovieCommand): void {
+        let movieType = this.getMovieType(command.type);
+        let movie = MovieFactory.createMovie(command.title, movieType);
+        command.movieRepository.add(movie);
     }
 
 }
-
-export default AddMovieUseCase;
