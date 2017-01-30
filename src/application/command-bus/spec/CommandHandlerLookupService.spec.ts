@@ -1,6 +1,6 @@
-import {CommandHandlerLookupService as SUT} from './CommandHandlerLookupService';
-import ICommandHandler from './CommandHandler';
-import Command from './Command';
+import {CommandHandlerLookupService as SUT} from '../CommandHandlerLookupService';
+import ICommandHandler from '../CommandHandler';
+import Command from '../Command';
 
 const emptyCommandHandler = (): ICommandHandler => {
     return {

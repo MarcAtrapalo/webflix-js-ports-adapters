@@ -1,5 +1,5 @@
-import CommandBus from './CommandBus';
-import Command from './Command';
+import CommandBus from '../CommandBus';
+import Command from '../Command';
 
 describe('CommandBus', () => {
 

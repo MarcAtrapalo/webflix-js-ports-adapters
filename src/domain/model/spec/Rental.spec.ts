@@ -1,9 +1,9 @@
-import Rental from './Rental';
+import Rental from '../Rental';
 import RentalBuilder from './test-builders/RentalBuilder';
-import Money from './Money';
-import Currency from "./Currency";
-import MovieBuilder from "./test-builders/MovieBuilder";
-import RentalPriceBuilder from "./test-builders/RentalPriceBuilder";
+import Money from '../Money';
+import Currency from '../Currency';
+import MovieBuilder from './test-builders/MovieBuilder';
+import RentalPriceBuilder from './test-builders/RentalPriceBuilder';
 const sinon = require('sinon');
 
 describe('Rental', () => {
