@@ -1,5 +1,5 @@
 import Movie from '../../domain/model/Movie';
-import IMovieRepository from './IMovieRepository';
+import IMovieRepository from '../../application/repository-ports/IMovieRepository';
 
 
 export class InMemoryMovieRepository implements IMovieRepository {

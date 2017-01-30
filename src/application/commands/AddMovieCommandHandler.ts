@@ -1,4 +1,4 @@
-import IMovieRepository from '../../infrastructure/repositories/IMovieRepository';
+import IMovieRepository from '../repository-ports/IMovieRepository';
 import Movie from '../../domain/model/Movie';
 import MovieFactory, {IMovieType} from '../../domain/services/MovieFactory';
 import Command from '../command-bus/Command';
