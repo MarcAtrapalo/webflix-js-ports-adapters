@@ -1,5 +1,6 @@
 import * as commandHandlers from '../commands/index';
 import ICommandHandler from './CommandHandler';
+import ApplicationException from "../ApplicationException";
 
 export class CommandHandlerLookupService {
 
@@ -11,7 +12,7 @@ export class CommandHandlerLookupService {
     constructor(commandHandlers: any) {
         this.commandHandlers = Object.keys(commandHandlers).reduce((handlers: any, commandHandlerName: string) => {
             if (!this.isValidName(commandHandlerName)) {
-                throw new Error('Invalid Command Handler name: "' + commandHandlerName
+                throw new ApplicationException('Invalid Command Handler name: "' + commandHandlerName
                     + '". Names must be unique and end in "CommandHandler"');
             }
             return {

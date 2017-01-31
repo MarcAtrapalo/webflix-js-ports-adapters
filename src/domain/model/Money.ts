@@ -1,4 +1,5 @@
 import Currency from './Currency';
+import DomainException from "../DomainException";
 
 class Money {
     public amount: number;
@@ -11,7 +12,7 @@ class Money {
 
     public add(money: Money): Money {
         if (!money.currency.equals(this.currency)) {
-            throw new Error('Attempted to add a money from a different currency');
+            throw new DomainException('Attempted to add a money from a different currency');
         }
         return new Money(this.amount + money.amount, this.currency);
     }

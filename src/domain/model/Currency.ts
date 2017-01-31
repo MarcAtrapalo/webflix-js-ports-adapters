@@ -1,3 +1,4 @@
+import DomainException from "../DomainException";
 class Currency {
     private _isoCode: string;
 
@@ -11,7 +12,7 @@ class Currency {
 
     set isoCode(value: string) {
         if (!/^[A-Za-z]{3}$/.test(value)) {
-            throw new Error('ISO code must be a three letter code');
+            throw new DomainException('ISO code must be a three letter code');
         }
         this._isoCode = value;
     }

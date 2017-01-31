@@ -1,5 +1,6 @@
 import Movie from '../../domain/model/Movie';
 import IMovieRepository from '../../application/repository-ports/IMovieRepository';
+import InfrastructureException from "../InfrastructureException";
 
 
 export class InMemoryMovieRepository implements IMovieRepository {
@@ -19,7 +20,7 @@ export class InMemoryMovieRepository implements IMovieRepository {
 
     public add(movie: Movie): void {
         if (this.getMoviesByTitle(movie.title).length > 0) {
-            throw new Error('Movie already exists');
+            throw new InfrastructureException('Movie already exists');
         }
         this.movies.push(movie);
     }
@@ -27,7 +28,7 @@ export class InMemoryMovieRepository implements IMovieRepository {
     public update(movie: Movie): void {
         let moviesWithSameTitle = this.getMoviesByTitle(movie.title);
         if (moviesWithSameTitle.length === 0) {
-            throw new Error('Movie does not exist');
+            throw new InfrastructureException('Movie does not exist');
         }
         this.movies = [...this.movies.filter((m) => (m.title !== movie.title)), movie];
     }

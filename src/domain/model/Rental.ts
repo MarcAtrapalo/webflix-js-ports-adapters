@@ -1,5 +1,6 @@
 import Money from './Money';
 import Movie from './Movie';
+import DomainException from "../DomainException";
 
 class Rental {
     public movie: Movie;
@@ -32,7 +33,7 @@ class Rental {
                               minimumRentalDays: number,
                               daysRented: number): Money {
         if (daysRented <= 0) {
-            throw new Error('daysRented must be higher than zero');
+            throw new DomainException('daysRented must be higher than zero');
         }
 
         let price = basePrice;

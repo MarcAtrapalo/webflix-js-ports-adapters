@@ -2,6 +2,7 @@ import Movie from '../model/Movie';
 import Currency from '../model/Currency';
 import Money from '../model/Money';
 import RentalPrice from '../model/RentalPrice';
+import DomainException from "../DomainException";
 
 export enum IMovieType {
     NEW_RELEASE,
@@ -63,7 +64,7 @@ export class MovieFactory {
             return new Movie(title, params.rentalPrice, params.rentalDays,
                 params.pointsMinimumDays, params.basePoints, params.pointsForExtraDays);
         } else {
-            throw new Error('Unexpected Movie Type');
+            throw new DomainException('Unexpected Movie Type');
         }
     }
 

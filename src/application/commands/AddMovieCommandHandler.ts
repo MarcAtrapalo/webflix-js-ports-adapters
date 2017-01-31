@@ -1,8 +1,8 @@
 import IMovieRepository from '../repository-ports/IMovieRepository';
-import Movie from '../../domain/model/Movie';
 import MovieFactory, {IMovieType} from '../../domain/services/MovieFactory';
 import Command from '../command-bus/Command';
 import CommandHandler from '../command-bus/CommandHandler';
+import ApplicationException from "../ApplicationException";
 
 export interface AddMovieCommand extends Command {
     title: string;
@@ -21,7 +21,7 @@ export default class AddMovieCommandHandler implements CommandHandler {
             case 'children':
                 return IMovieType.CHILDRENS;
             default:
-                throw new Error('Unexpected movie type');
+                throw new ApplicationException('Unexpected movie type');
         }
     }
 
