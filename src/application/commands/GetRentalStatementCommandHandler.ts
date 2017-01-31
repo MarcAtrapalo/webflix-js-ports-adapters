@@ -28,7 +28,7 @@ export default class GetRentalStatementCommandHandler implements CommandHandler 
 
     private getRentalOutput(rental: Rental): IRental {
         return {
-            movieType: rental.movie.type,
+            movieTitle: rental.movie.title,
             price: this.getMoneyOutput(rental.getRentalPrice()),
         }
     }

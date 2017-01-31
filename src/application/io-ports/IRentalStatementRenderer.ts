@@ -4,7 +4,7 @@ export interface IMoney {
 }
 
 export interface IRental {
-    movieType: string;
+    movieTitle: string;
     price: IMoney;
 }
 
