@@ -1,7 +1,11 @@
-import RentMovieCommandHandler from './RentMovieCommandHandler';
+import AddCustomerCommandHandler from './AddCustomerCommandHandler';
 import AddMovieCommandHandler from './AddMovieCommandHandler';
+import AddOrderCommandHandler from './AddOrderCommandHandler';
+import RentMovieCommandHandler from './RentMovieCommandHandler';
 
 export {
-    RentMovieCommandHandler,
+    AddCustomerCommandHandler,
     AddMovieCommandHandler,
+    AddOrderCommandHandler,
+    RentMovieCommandHandler,
 };
