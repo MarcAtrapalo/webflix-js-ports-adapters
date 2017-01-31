@@ -4,6 +4,7 @@ class Movie {
 
     public title: string;
     public price: RentalPrice;
+    public type: string;
     public rentalDays: number;
     public frequentRenterMinimumDays: number;
     public frequentRenterBasePoints: number;
@@ -11,12 +12,14 @@ class Movie {
 
     constructor(title: string,
                 price: RentalPrice,
+                type: string,
                 rentalDays: number,
                 frequentRenterMinimumDays: number,
                 frequentRenterBasePoints: number,
                 frequentRenterPointsForExtraDays?: number) {
         this.title = title;
         this.price = price;
+        this.type = type;
         this.rentalDays = rentalDays;
         this.frequentRenterMinimumDays = frequentRenterMinimumDays;
         this.frequentRenterBasePoints = frequentRenterBasePoints;

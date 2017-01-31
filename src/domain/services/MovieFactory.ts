@@ -11,6 +11,7 @@ export enum IMovieType {
 }
 
 export interface IMovieTypeParams {
+    type: string;
     rentalDays: number;
     rentalPrice: RentalPrice;
     pointsMinimumDays: number;
@@ -25,6 +26,7 @@ export interface IMovieTypeParamsMap {
 /** Concrete movie types values */
 export const MOVIE_TYPES_PARAMS: IMovieTypeParamsMap = {
     [IMovieType.NEW_RELEASE]: {
+        type: 'New Release Movie',
         rentalDays: 0,
         rentalPrice: new RentalPrice(
             new Money(0, new Currency('EUR')),
@@ -35,6 +37,7 @@ export const MOVIE_TYPES_PARAMS: IMovieTypeParamsMap = {
         pointsForExtraDays: 2,
     },
     [IMovieType.REGULAR]: {
+        type: 'Regular Movie',
         rentalDays: 2,
         rentalPrice: new RentalPrice(
             new Money(2, new Currency('EUR')),
@@ -44,6 +47,7 @@ export const MOVIE_TYPES_PARAMS: IMovieTypeParamsMap = {
         basePoints: 1,
     },
     [IMovieType.CHILDRENS]: {
+        type: 'Children Movie',
         rentalDays: 3,
         rentalPrice: new RentalPrice(
             new Money(1.5, new Currency('EUR')),
@@ -61,7 +65,7 @@ export class MovieFactory {
         const params = MOVIE_TYPES_PARAMS[type];
 
         if (typeof params !== 'undefined') {
-            return new Movie(title, params.rentalPrice, params.rentalDays,
+            return new Movie(title, params.rentalPrice, params.type, params.rentalDays,
                 params.pointsMinimumDays, params.basePoints, params.pointsForExtraDays);
         } else {
             throw new DomainException('Unexpected Movie Type');
