@@ -15,7 +15,7 @@ export default class AddCustomerCommandHandler implements CommandHandler {
 
     public execute(command: AddCustomerCommand): void {
         const customer: Customer = command.customerRepository.getByName(command.customer);
-        const order = new Order(customer);
+        const order = new Order(command.orderRepository.nextId(), customer);
         command.orderRepository.add(order);
     }
 

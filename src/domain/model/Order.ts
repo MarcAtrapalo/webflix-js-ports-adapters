@@ -4,10 +4,12 @@ import Money from './Money';
 import Currency from './Currency';
 
 class Order {
+    public id: string;
     public rentalList: Rental[];
     public customer: Customer;
 
-    constructor(customer: Customer) {
+    constructor(id: string, customer: Customer) {
+        this.id = id;
         this.customer = customer;
         this.rentalList = [];
     }

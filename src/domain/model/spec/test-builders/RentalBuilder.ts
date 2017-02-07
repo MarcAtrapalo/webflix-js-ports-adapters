@@ -1,5 +1,5 @@
-import Rental from '../Rental';
-import Movie from '../Movie';
+import Rental from '../../Rental';
+import Movie from '../../Movie';
 import MovieBuilder from './MovieBuilder';
 
 class RentalBuilder {

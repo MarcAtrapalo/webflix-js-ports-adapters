@@ -1,11 +1,12 @@
-import Movie from '../Movie';
-import RentalPrice from '../RentalPrice';
+import Movie from '../../Movie';
+import RentalPrice from '../../RentalPrice';
 import RentalPriceBuilder from './RentalPriceBuilder';
 
 class MovieBuilder {
 
     private title: string;
     private price: RentalPrice;
+    private type: string;
     private rentalDays: number;
     public frequentRenterMinimumDays: number;
     public frequentRenterBasePoints: number;
@@ -31,6 +32,11 @@ class MovieBuilder {
         return this;
     }
 
+    public withType(type: string) {
+        this.type = type;
+        return this;
+    }
+
     public withRentalDays(rentalDays: number) {
         this.rentalDays = rentalDays;
         return this;
@@ -52,7 +58,7 @@ class MovieBuilder {
     }
 
     build(): Movie {
-        return new Movie(this.title, this.price, this.rentalDays,
+        return new Movie(this.title, this.price, this.type, this.rentalDays,
             this.frequentRenterMinimumDays, this.frequentRenterBasePoints, this.frequentRenterPointsForExtraDays);
     }
 

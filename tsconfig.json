@@ -3,11 +3,11 @@
     "declaration": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "outDir": "./lib",
     "preserveConstEnums": true,
     "removeComments": true,
-    "target": "es5"
+    "target": "es6"
   },
   "include": [
     "src/**/*"

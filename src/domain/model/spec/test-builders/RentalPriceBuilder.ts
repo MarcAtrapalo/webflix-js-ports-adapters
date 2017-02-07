@@ -1,6 +1,6 @@
-import RentalPrice from '../RentalPrice';
-import Money from '../Money';
-import Currency from '../Currency';
+import RentalPrice from '../../RentalPrice';
+import Money from '../../Money';
+import Currency from '../../Currency';
 
 class RentalPriceBuilder {
 

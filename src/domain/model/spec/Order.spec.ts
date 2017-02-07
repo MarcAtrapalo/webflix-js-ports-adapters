@@ -12,7 +12,7 @@ describe('Order', () => {
     let sut: Order, rentalBuilder: RentalBuilder, movieBuilder: MovieBuilder;
 
     beforeEach(() => {
-        sut = new Order(new Customer('Mr. Test'));
+        sut = new Order('testId', new Customer('Mr. Test'));
         rentalBuilder = new RentalBuilder();
         movieBuilder = new MovieBuilder();
     });

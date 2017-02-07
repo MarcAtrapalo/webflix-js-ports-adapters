@@ -21,7 +21,9 @@
     "watch": "npm run build -- --watch",
     "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "shortid": "^2.2.6"
+  },
   "devDependencies": {
     "@types/chai": "^3.0.0",
     "@types/mocha": "^2.0.0",
