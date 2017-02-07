@@ -12,7 +12,7 @@ export default class MovieController {
     addMovie(request: IAddMovieRequest) {
         const command: AddMovieCommand = {
             meta: {
-                commandType: 'ADD_MOVIE',
+                commandType: 'AddMovie',
             },
             title: request.title,
             type: request.type,

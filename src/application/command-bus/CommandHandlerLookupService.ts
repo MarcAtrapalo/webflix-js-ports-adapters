@@ -1,5 +1,4 @@
 import * as commandHandlers from '../commands/index';
-import ICommandHandler from './CommandHandler';
 import ApplicationException from "../ApplicationException";
 
 export class CommandHandlerLookupService {
