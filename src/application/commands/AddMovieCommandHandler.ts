@@ -10,7 +10,7 @@ export interface AddMovieCommand extends Command {
     movieRepository: IMovieRepository;
 }
 
-export default class AddMovieCommandHandler implements CommandHandler {
+export class AddMovieCommandHandler implements CommandHandler {
 
     private getMovieType(type: string): IMovieType {
         switch (type) {
@@ -32,3 +32,6 @@ export default class AddMovieCommandHandler implements CommandHandler {
     }
 
 }
+
+const addMovie = new AddMovieCommandHandler();
+export default addMovie;

@@ -12,7 +12,7 @@ export interface GetRentalStatementCommand extends Command {
     rentalStatementRenderer: IRentalStatementRenderer;
 }
 
-export default class GetRentalStatementCommandHandler implements CommandHandler {
+export class GetRentalStatementCommandHandler implements CommandHandler {
 
     execute(command: GetRentalStatementCommand) {
         const order: Order = command.orderRepository.getCurrentOrderByCustomerName(command.customer);
@@ -22,7 +22,7 @@ export default class GetRentalStatementCommandHandler implements CommandHandler 
             rentals: order.rentalList.map(this.getRentalOutput),
             totalPrice: this.getMoneyOutput(order.getTotalPrice()),
             totalPoints: order.getTotalFrequentRenterPoints(),
-        }
+        };
         command.rentalStatementRenderer.render(rentalStatement);
     }
 
@@ -41,3 +41,6 @@ export default class GetRentalStatementCommandHandler implements CommandHandler 
     }
 
 }
+
+const getRentalStatement = new GetRentalStatementCommandHandler();
+export default getRentalStatement;

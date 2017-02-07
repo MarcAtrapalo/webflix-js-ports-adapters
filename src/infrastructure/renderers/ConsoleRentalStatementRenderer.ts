@@ -3,7 +3,7 @@ import IRentalStatementRenderer, {
     IMoney
 } from '../../application/io-ports/IRentalStatementRenderer';
 
-export default class ConsoleRentalStatementRenderer implements IRentalStatementRenderer {
+export class ConsoleRentalStatementRenderer implements IRentalStatementRenderer {
 
     private renderPrice(price: IMoney): string {
         return Intl.NumberFormat(['en-US'], {
@@ -25,3 +25,7 @@ export default class ConsoleRentalStatementRenderer implements IRentalStatementR
     }
 
 }
+
+const rentalStatementRenderer = new ConsoleRentalStatementRenderer();
+
+export default rentalStatementRenderer;

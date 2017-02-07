@@ -1,9 +1,9 @@
 import IOrderRepository from '../../application/repository-ports/IOrderRepository';
 import Order from '../../domain/model/Order';
 import InfrastructureException from '../InfrastructureException';
-import shortid from 'shortid';
+import * as shortid from 'shortid';
 
-export default class InMemoryOrderRepository implements IOrderRepository {
+export class InMemoryOrderRepository implements IOrderRepository {
     private orders: Order[];
 
     constructor() {
@@ -23,8 +23,7 @@ export default class InMemoryOrderRepository implements IOrderRepository {
     }
 
     public add(order: Order): void {
-        const order = this.orders.find(this.hasCustomer(name));
-        if (typeof order !== 'undefined') {
+        if (typeof this.orders.find(this.hasCustomer(order.customer.name)) !== 'undefined') {
             throw new InfrastructureException('Order already exists');
         }
         this.orders.unshift(order);
@@ -57,3 +56,7 @@ export default class InMemoryOrderRepository implements IOrderRepository {
     }
 
 }
+
+const orderRepository = new InMemoryOrderRepository();
+
+export default orderRepository;

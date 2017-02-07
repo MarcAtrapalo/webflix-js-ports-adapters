@@ -8,7 +8,7 @@ export interface AddCustomerCommand extends Command {
     customerRepository: ICustomerRepository;
 }
 
-export default class AddCustomerCommandHandler implements CommandHandler {
+export class AddCustomerCommandHandler implements CommandHandler {
 
     public execute(command: AddCustomerCommand): void {
         const customer = new Customer(command.name);
@@ -16,3 +16,6 @@ export default class AddCustomerCommandHandler implements CommandHandler {
     }
 
 }
+
+const addCustomer = new AddCustomerCommandHandler();
+export default addCustomer;

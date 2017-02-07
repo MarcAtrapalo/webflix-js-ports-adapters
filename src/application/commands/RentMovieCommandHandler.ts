@@ -17,19 +17,25 @@ export interface RentMovieCommand extends Command {
     customerRepository: ICustomerRepository;
 }
 
-export default class RentMovieCommandHandler implements CommandHandler {
+export class RentMovieCommandHandler implements CommandHandler {
 
     public execute(command: RentMovieCommand): void {
         const movie: Movie = command.movieRepository.getMovieByTitle(command.title);
+        const rental: Rental = new Rental(movie, command.days);
         let order: Order;
         try {
             order = command.orderRepository.getCurrentOrderByCustomerName(command.customer);
+            order.addRental(rental);
+            command.orderRepository.update(order);
         } catch (e) {
-            throw new ApplicationException('The customer has no open orders');
+            const customer = command.customerRepository.getByName(command.customer);
+            order = new Order(command.orderRepository.nextId(), customer);
+            order.addRental(rental);
+            command.orderRepository.add(order);
         }
-        const rental: Rental = new Rental(movie, command.days);
-        order.addRental(rental);
-        command.orderRepository.update(order);
     }
 
 }
+
+const rentMovie = new RentMovieCommandHandler();
+export default rentMovie;

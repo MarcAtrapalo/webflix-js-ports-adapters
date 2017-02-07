@@ -2,7 +2,7 @@ import ICustomerRepository from '../../application/repository-ports/ICustomerRep
 import Customer from '../../domain/model/Customer';
 import InfrastructureException from '../InfrastructureException';
 
-export default class InMemoryCustomerRepository implements ICustomerRepository {
+export class InMemoryCustomerRepository implements ICustomerRepository {
     private customers: Customer[];
 
     constructor() {
@@ -33,3 +33,7 @@ export default class InMemoryCustomerRepository implements ICustomerRepository {
     }
 
 }
+
+const customerRepository = new InMemoryCustomerRepository();
+
+export default customerRepository;
