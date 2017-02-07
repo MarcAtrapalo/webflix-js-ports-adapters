@@ -1,13 +1,19 @@
 import {RentMovieCommand} from '../../application/commands/RentMovieCommandHandler';
+import {GetRentalStatementCommand} from '../../application/commands/GetRentalStatementCommandHandler';
 import {InMemoryMovieRepository} from "../../../lib/infrastructure/repositories/InMemoryMovieRepository";
 import InMemoryOrderRepository from "../repositories/InMemoryOrderRepository";
 import InMemoryCustomerRepository from "../repositories/InMemoryCustomerRepository";
 import CommandBus from "../../application/command-bus/CommandBus";
+import ConsoleRentalStatementRenderer from "../renderers/ConsoleRentalStatementRenderer";
 
 export interface IAddRentalRequest {
     customerName: string;
     movieTitle: string;
     rentalDuration: number;
+}
+
+export interface IGetRentalStatement {
+    customerName: string;
 }
 
 class RentalController {
@@ -23,6 +29,19 @@ class RentalController {
             movieRepository: InMemoryMovieRepository,
             orderRepository: InMemoryOrderRepository,
             customerRepository: InMemoryCustomerRepository,
+        };
+
+        CommandBus.execute(command);
+    }
+
+    public getRentalStatement(request: IGetRentalStatement) {
+        const command: GetRentalStatementCommand = {
+            meta: {
+                commandType: 'GetRentalStatement',
+            },
+            customer: request.customerName,
+            orderRepository: InMemoryOrderRepository,
+            rentalStatementRenderer: ConsoleRentalStatementRenderer,
         };
 
         CommandBus.execute(command);
