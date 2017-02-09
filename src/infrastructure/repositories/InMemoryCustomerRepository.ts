@@ -9,23 +9,23 @@ export class InMemoryCustomerRepository implements ICustomerRepository {
         this.customers = [];
     }
 
-    private getCustomersByName(name: string) {
+    private findByName(name: string) {
         return this.customers.filter((customer: Customer) => (customer.name === name));
     }
 
-    public add(customer: Customer): void {
-        if (this.getCustomersByName(customer.name).length > 0) {
+    public insert(customer: Customer): void {
+        if (this.findByName(customer.name).length > 0) {
             throw new InfrastructureException('Customer already exists');
         }
         this.customers.push(customer);
     }
 
-    public getByName(name: string): Customer {
-        return this.getCustomersByName(name)[0];
+    public findOneByName(name: string): Customer {
+        return this.findByName(name)[0];
     }
 
     public update(customer: Customer): void {
-        let customersWithSameName = this.getCustomersByName(customer.name);
+        let customersWithSameName = this.findByName(customer.name);
         if (customersWithSameName.length === 0) {
             throw new InfrastructureException('Customer does not exist');
         }

@@ -1,9 +1,9 @@
 import Order from '../../domain/model/entities/Order';
 
 interface IOrderRepository {
-    add: (order: Order) => void;
+    insert: (order: Order) => void;
     update: (order: Order) => void;
-    getCurrentOrderByCustomerName: (name: string) => Order;
+    findOneByCustomerName: (name: string) => Order;
     nextId: () => string;
 }
 

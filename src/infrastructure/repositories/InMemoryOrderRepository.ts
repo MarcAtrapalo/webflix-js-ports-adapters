@@ -22,14 +22,14 @@ export class InMemoryOrderRepository implements IOrderRepository {
         };
     }
 
-    public add(order: Order): void {
+    public insert(order: Order): void {
         if (typeof this.orders.find(this.hasCustomer(order.customer.name)) !== 'undefined') {
             throw new InfrastructureException('Order already exists');
         }
         this.orders.unshift(order);
     }
 
-    public getCurrentOrderByCustomerName(name: string): Order {
+    public findOneByCustomerName(name: string): Order {
         const order = this.orders.find(this.hasCustomer(name));
         if (typeof order === 'undefined') {
             throw new InfrastructureException('Order not found');
