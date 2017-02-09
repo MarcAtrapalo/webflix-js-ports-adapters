@@ -1,5 +1,5 @@
 import MovieFactory, {IMovieType, MOVIE_TYPES_PARAMS} from './MovieFactory';
-import Movie from '../model/Movie';
+import Movie from '../model/entities/Movie';
 
 describe('MovieFactory', () => {
 

@@ -1,4 +1,4 @@
-import Movie from '../../domain/model/Movie';
+import Movie from '../../domain/model/entities/Movie';
 
 interface IMovieRepository {
     getMovieByTitle: (title: string) => Movie;

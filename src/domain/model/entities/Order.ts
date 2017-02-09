@@ -1,7 +1,7 @@
 import Rental from './Rental';
 import Customer from './Customer';
-import Money from './Money';
-import Currency from './Currency';
+import Money from '../valueObjects/Money';
+import Currency from '../valueObjects/Currency';
 
 class Order {
     public id: string;

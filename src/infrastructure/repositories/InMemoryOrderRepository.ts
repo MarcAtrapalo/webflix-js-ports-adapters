@@ -1,5 +1,5 @@
 import IOrderRepository from '../../application/repository-ports/IOrderRepository';
-import Order from '../../domain/model/Order';
+import Order from '../../domain/model/entities/Order';
 import InfrastructureException from '../InfrastructureException';
 import * as shortid from 'shortid';
 

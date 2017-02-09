@@ -1,4 +1,4 @@
-import RentalPrice from './RentalPrice';
+import RentalPrice from '../valueObjects/RentalPrice';
 
 class Movie {
 

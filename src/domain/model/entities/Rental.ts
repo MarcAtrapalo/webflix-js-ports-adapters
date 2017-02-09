@@ -1,6 +1,6 @@
-import Money from './Money';
+import Money from '../valueObjects/Money';
 import Movie from './Movie';
-import DomainException from "../DomainException";
+import DomainException from "../../DomainException";
 
 class Rental {
     public movie: Movie;

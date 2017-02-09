@@ -8,6 +8,11 @@ class RentalPrice {
         this.basePrice = basePrice;
         this.pricePerExtraDay = pricePerExtraDay;
     }
+
+    public equals(price: RentalPrice): boolean {
+        return this.basePrice.equals(price.basePrice) &&
+            this.pricePerExtraDay.equals(price.pricePerExtraDay);
+    }
 }
 
 export default RentalPrice;

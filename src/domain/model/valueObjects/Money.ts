@@ -1,5 +1,5 @@
 import Currency from './Currency';
-import DomainException from "../DomainException";
+import DomainException from "../../DomainException";
 
 class Money {
     public amount: number;
@@ -26,6 +26,10 @@ class Money {
             minimumFractionDigits: 1,
             minimumIntegerDigits: 1,
         });
+    }
+
+    public equals(money: Money): boolean {
+        return money.amount === this.amount && money.currency.equals(this.currency);
     }
 }
 

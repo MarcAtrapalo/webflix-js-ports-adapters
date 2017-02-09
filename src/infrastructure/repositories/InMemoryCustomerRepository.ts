@@ -1,5 +1,5 @@
 import ICustomerRepository from '../../application/repository-ports/ICustomerRepository';
-import Customer from '../../domain/model/Customer';
+import Customer from '../../domain/model/entities/Customer';
 import InfrastructureException from '../InfrastructureException';
 
 export class InMemoryCustomerRepository implements ICustomerRepository {

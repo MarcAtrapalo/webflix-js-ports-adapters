@@ -1,4 +1,4 @@
-import Currency from '../Currency';
+import Currency from '../valueObjects/Currency';
 
 describe('Currency', () => {
 

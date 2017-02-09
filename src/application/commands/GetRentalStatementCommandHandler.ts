@@ -1,10 +1,10 @@
 import CommandHandler from '../command-bus/CommandHandler';
 import Command from "../command-bus/Command";
 import IOrderRepository from "../repository-ports/IOrderRepository";
-import Order from "../../domain/model/Order";
-import Rental from "../../domain/model/Rental";
+import Order from "../../domain/model/entities/Order";
+import Rental from "../../domain/model/entities/Rental";
 import IRentalStatementRenderer, {IRentalStatement, IRental, IMoney} from "../io-ports/IRentalStatementRenderer";
-import Money from "../../domain/model/Money";
+import Money from "../../domain/model/valueObjects/Money";
 
 export interface GetRentalStatementCommand extends Command {
     customer: string;

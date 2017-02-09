@@ -1,5 +1,5 @@
-import Movie from '../../Movie';
-import RentalPrice from '../../RentalPrice';
+import Movie from '../../entities/Movie';
+import RentalPrice from '../../valueObjects/RentalPrice';
 import RentalPriceBuilder from './RentalPriceBuilder';
 
 class MovieBuilder {

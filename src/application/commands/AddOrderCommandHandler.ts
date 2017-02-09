@@ -1,9 +1,9 @@
 import Command from '../command-bus/Command';
 import CommandHandler from '../command-bus/CommandHandler';
-import Customer from '../../domain/model/Customer';
+import Customer from '../../domain/model/entities/Customer';
 import ICustomerRepository from '../repository-ports/ICustomerRepository';
 import IOrderRepository from '../repository-ports/IOrderRepository';
-import Order from '../../domain/model/Order';
+import Order from '../../domain/model/entities/Order';
 
 export interface AddCustomerCommand extends Command {
     customer: string;

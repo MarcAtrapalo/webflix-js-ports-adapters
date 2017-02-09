@@ -1,7 +1,7 @@
-import Movie from '../model/Movie';
-import Currency from '../model/Currency';
-import Money from '../model/Money';
-import RentalPrice from '../model/RentalPrice';
+import Movie from '../model/entities/Movie';
+import Currency from '../model/valueObjects/Currency';
+import Money from '../model/valueObjects/Money';
+import RentalPrice from '../model/valueObjects/RentalPrice';
 import DomainException from "../DomainException";
 
 export enum IMovieType {

@@ -1,4 +1,4 @@
-import Order from '../../domain/model/Order';
+import Order from '../../domain/model/entities/Order';
 
 interface IOrderRepository {
     add: (order: Order) => void;

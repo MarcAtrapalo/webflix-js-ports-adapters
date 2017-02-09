@@ -1,4 +1,4 @@
-import Movie from '../../domain/model/Movie';
+import Movie from '../../domain/model/entities/Movie';
 import IMovieRepository from '../../application/repository-ports/IMovieRepository';
 import InfrastructureException from "../InfrastructureException";
 

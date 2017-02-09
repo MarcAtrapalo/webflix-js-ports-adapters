@@ -1,4 +1,4 @@
-import Customer from '../../domain/model/Customer';
+import Customer from '../../domain/model/entities/Customer';
 
 interface ICustomerRepository {
     add: (customer: Customer) => void;

@@ -1,4 +1,4 @@
-import DomainException from "../DomainException";
+import DomainException from "../../DomainException";
 class Currency {
     private _isoCode: string;
 
